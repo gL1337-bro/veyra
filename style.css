@@ -1933,19 +1933,25 @@ body {
 .footer-wordmark {
   text-align: center;
   margin-top: 1rem;
+  overflow: hidden;
+  line-height: 0.85;
 }
 
 .footer-wordmark span {
-  font-size: clamp(4rem, 12vw, 8rem);
+  font-size: clamp(6rem, 25vw, 12rem);
   font-weight: 900;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.08em;
   color: var(--text-white);
   background: linear-gradient(135deg, #2563EB, #7C3AED);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 0.9;
+  line-height: 0.85;
   display: block;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Responsive */
