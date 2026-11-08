@@ -443,6 +443,17 @@
 
     waitlistForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const emailInput = document.getElementById('emailInput');
+      const email = emailInput.value.trim();
+
+      if (!email.includes('@')) {
+        emailInput.classList.add('error');
+        emailInput.focus();
+        setTimeout(() => emailInput.classList.remove('error'), 400);
+        return;
+      }
+
+      emailInput.classList.remove('error');
       waitlistForm.style.display = 'none';
       successMessage.classList.add('visible');
     });
