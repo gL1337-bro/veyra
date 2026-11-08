@@ -262,6 +262,67 @@
     </div>
   </section>
 
+  <section id="demo" class="demo">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Live Interactive Demo</div>
+        <h2 class="section-title">Experience the Latency-Free Voice</h2>
+        <p class="section-subtitle">Click to simulate a real-time interaction with VEYRA's neural core.</p>
+      </div>
+
+      <div class="demo-container">
+        <div class="demo-card">
+          <div class="spectrum">
+            <div class="orb"></div>
+            <div class="bars">
+              <div class="bar" style="--i:1"></div>
+              <div class="bar" style="--i:2"></div>
+              <div class="bar" style="--i:3"></div>
+              <div class="bar" style="--i:4"></div>
+              <div class="bar" style="--i:5"></div>
+              <div class="bar" style="--i:6"></div>
+              <div class="bar" style="--i:7"></div>
+              <div class="bar" style="--i:8"></div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn-play" id="btnPlay" aria-label="Play / Pause">
+              <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21"></polygon></svg>
+              <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+            </button>
+            <div class="voice-selector">
+              <button class="voice-chip active" data-voice="standard">Standard Voice</button>
+              <button class="voice-chip" data-voice="expressive">Expressive Tone</button>
+              <button class="voice-chip" data-voice="technical">Technical Assistant</button>
+            </div>
+          </div>
+
+          <div class="simulation">
+            <div class="prompt-bubble">
+              <svg class="mic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+              <div class="prompt-content">
+                <div class="prompt-label">User</div>
+                <p class="prompt-text">"Plan my week based on unread priority emails."</p>
+              </div>
+            </div>
+
+            <div class="response-bubble">
+              <svg class="veyra-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12.01" y2="8"></line><polyline points="12 5 12 8 15 8"></polyline></svg>
+              <div class="response-content">
+                <div class="response-label">VEYRA</div>
+                <p class="response-text" id="responseText">I've analyzed your inbox and prioritized the following:</p>
+                <div class="typing-indicator" id="typingIndicator">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <script>
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('.tab-panel');
@@ -277,6 +338,68 @@
         btn.classList.add('active');
         btn.setAttribute('aria-selected', 'true');
         document.getElementById(`panel-${btn.dataset.tab}`).classList.add('active');
+      });
+    });
+
+    // Demo Play / Pause logic
+    const btnPlay = document.getElementById('btnPlay');
+    const iconPlay = btnPlay.querySelector('.icon-play');
+    const iconPause = btnPlay.querySelector('.icon-pause');
+    const spectrum = document.querySelector('.spectrum');
+    const responseText = document.getElementById('responseText');
+    const typingIndicator = document.getElementById('typingIndicator');
+
+    const fullResponse = "I've analyzed your inbox and prioritized the following:\n\n• Project Alpha — Client feedback due Tuesday, high priority.\n• Invoice #4482 — Payment overdue, requires immediate action.\n• Team Sync — Rescheduled to Thursday 10 AM.\n• Security Audit — Report available for review.\n\nShall I draft responses or schedule these for you?";
+
+    let isPlaying = false;
+    let typeIndex = 0;
+    let typeInterval = null;
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        btnPlay.classList.add('playing');
+        iconPlay.style.display = 'none';
+        iconPause.style.display = 'block';
+        spectrum.classList.add('active');
+        startTyping();
+      } else {
+        btnPlay.classList.remove('playing');
+        iconPlay.style.display = 'block';
+        iconPause.style.display = 'none';
+        spectrum.classList.remove('active');
+        stopTyping();
+      }
+    }
+
+    function startTyping() {
+      responseText.textContent = '';
+      typingIndicator.style.display = 'flex';
+      typeIndex = 0;
+      typeInterval = setInterval(() => {
+        if (typeIndex < fullResponse.length) {
+          responseText.textContent += fullResponse.charAt(typeIndex);
+          typeIndex++;
+        } else {
+          stopTyping();
+        }
+      }, 35);
+    }
+
+    function stopTyping() {
+      clearInterval(typeInterval);
+      typeInterval = null;
+      typingIndicator.style.display = 'none';
+    }
+
+    btnPlay.addEventListener('click', togglePlay);
+
+    // Voice selector
+    const voiceChips = document.querySelectorAll('.voice-chip');
+    voiceChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        voiceChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
       });
     });
   </script>
