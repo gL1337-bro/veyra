@@ -19,6 +19,7 @@ html {
 }
 
 body {
+  margin: 0;
   background-color: var(--bg-deep);
   color: var(--text-white);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -1812,7 +1813,7 @@ body {
 /* ---------- Footer ---------- */
 .footer {
   position: relative;
-  padding: 5rem 0 3rem;
+  padding: 5rem 0 0;
   background-color: #08070B;
   overflow: hidden;
 }
@@ -1906,7 +1907,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
 }
 
 .footer-copyright {
