@@ -1813,7 +1813,7 @@ body {
 .footer {
   position: relative;
   padding: 5rem 0 3rem;
-  background-color: var(--bg-deep);
+  background-color: #08070B;
   overflow: hidden;
 }
 
@@ -1932,14 +1932,14 @@ body {
 
 .footer-wordmark {
   text-align: center;
-  margin-top: 2rem;
+  margin: 2rem 0 1rem;
   line-height: 0.85;
 }
 
 .footer-wordmark span {
-  font-size: clamp(8rem, 40vw, 14rem);
+  font-size: clamp(6rem, 20vw, 10rem);
   font-weight: 900;
-  letter-spacing: -0.1em;
+  letter-spacing: 0.15em;
   color: var(--text-white);
   background: linear-gradient(135deg, #2563EB, #7C3AED);
   -webkit-background-clip: text;
@@ -1949,7 +1949,7 @@ body {
   display: block;
   margin: 0 auto;
   white-space: nowrap;
-  max-width: 100vw;
+  width: 100%;
 }
 
 /* Responsive */
@@ -1996,5 +1996,6 @@ body {
 
   .footer-wordmark span {
     font-size: 3rem;
+    letter-spacing: 0.1em;
   }
 }
