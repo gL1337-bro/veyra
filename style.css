@@ -1279,6 +1279,7 @@ body {
   box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
   z-index: 2;
   animation: orbFloat 3s ease-in-out infinite;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .bars {
@@ -1290,6 +1291,8 @@ body {
   justify-content: center;
   gap: 6px;
   z-index: 1;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .bar {
@@ -1318,12 +1321,25 @@ body {
   50% { transform: translateY(-12px) scale(1.05); opacity: 1; }
 }
 
-.spectrum.active .bar {
-  animation-play-state: running;
+/* Idle state: show ONLY orb, hide bars */
+.spectrum:not(.active) .bars {
+  opacity: 0;
+  pointer-events: none;
 }
-.spectrum:not(.active) .bar {
-  opacity: 0.3;
-  transform: scaleY(0.4);
+
+.spectrum:not(.active) .orb {
+  transform: scale(1);
+  opacity: 0.9;
+}
+
+/* Active state: show bars, shrink orb */
+.spectrum.active .bars {
+  opacity: 1;
+}
+
+.spectrum.active .orb {
+  transform: scale(0.6);
+  opacity: 0.5;
 }
 
 /* Controls */
