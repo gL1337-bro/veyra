@@ -97,7 +97,148 @@
         </div>
       </div>
     </div>
+  <section id="workflows" class="workflows">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Workflows</div>
+        <h2 class="section-title">Speak It Into Existence</h2>
+        <p class="section-subtitle">See how VEYRA transforms simple spoken prompts into complex completed tasks.</p>
+      </div>
+
+      <div class="workflow-container">
+        <div class="tab-nav" role="tablist" aria-label="Workflow examples">
+          <button class="tab-btn active" data-tab="schedule" role="tab" aria-selected="true" id="tab-schedule">
+            <span class="tab-number">01</span>
+            <span class="tab-name">Automate Schedule</span>
+          </button>
+          <button class="tab-btn" data-tab="summarize" role="tab" aria-selected="false" id="tab-summarize">
+            <span class="tab-number">02</span>
+            <span class="tab-name">Summarize &amp; Draft</span>
+          </button>
+          <button class="tab-btn" data-tab="creative" role="tab" aria-selected="false" id="tab-creative">
+            <span class="tab-number">03</span>
+            <span class="tab-name">Creative Generation</span>
+          </button>
+        </div>
+
+        <div class="tab-panels">
+          <div class="tab-panel active" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule">
+            <div class="workflow-card">
+              <div class="workflow-visual schedule-visual">
+                <div class="calendar-grid">
+                  <div class="cal-day">Mon</div>
+                  <div class="cal-day">Tue</div>
+                  <div class="cal-day">Wed</div>
+                </div>
+                <div class="slots">
+                  <div class="slot slot-moving"></div>
+                  <div class="slot slot-moving"></div>
+                  <div class="slot slot-moving"></div>
+                </div>
+                <div class="check-badge">✓ Schedule Updated</div>
+              </div>
+              <div class="workflow-content">
+                <div class="input-output">
+                  <div class="io-box input-box">
+                    <span class="io-label">Spoken Input</span>
+                    <p class="io-text">"Clear my afternoon and reschedule all meetings to tomorrow morning."</p>
+                  </div>
+                  <div class="io-arrow">→</div>
+                  <div class="io-box output-box">
+                    <span class="io-label">VEYRA Action</span>
+                    <p class="io-text">3 calendar slots automatically moved — conflict resolved.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-summarize" role="tabpanel" aria-labelledby="tab-summarize">
+            <div class="workflow-card">
+              <div class="workflow-visual summarize-visual">
+                <div class="doc-card">
+                  <div class="doc-header"></div>
+                  <ul class="bullets">
+                    <li><span class="bullet"></span> Key takeaway 1</li>
+                    <li><span class="bullet"></span> Action item assigned</li>
+                    <li><span class="bullet"></span> Follow-up scheduled</li>
+                  </ul>
+                </div>
+                <div class="email-preview">
+                  <div class="email-header">To: Team</div>
+                  <div class="email-subject">Subject: Call Summary &amp; Next Steps</div>
+                  <div class="email-body">Hi team, here are the key takeaways...</div>
+                </div>
+              </div>
+              <div class="workflow-content">
+                <div class="input-output">
+                  <div class="io-box input-box">
+                    <span class="io-label">Spoken Input</span>
+                    <p class="io-text">"Turn the key takeaways from my last 30-minute call into an email draft."</p>
+                  </div>
+                  <div class="io-arrow">→</div>
+                  <div class="io-box output-box">
+                    <span class="io-label">VEYRA Action</span>
+                    <p class="io-text">Formatted summary + auto-generated email draft ready to send.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-creative" role="tabpanel" aria-labelledby="tab-creative">
+            <div class="workflow-card">
+              <div class="workflow-visual creative-visual">
+                <div class="canvas-preview">
+                  <div class="glow-node"></div>
+                  <div class="glow-node"></div>
+                  <div class="glow-node"></div>
+                  <div class="loading-bars">
+                    <div class="lb"></div>
+                    <div class="lb"></div>
+                    <div class="lb"></div>
+                    <div class="lb"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="workflow-content">
+                <div class="input-output">
+                  <div class="io-box input-box">
+                    <span class="io-label">Spoken Input</span>
+                    <p class="io-text">"Generate a futuristic concept design based on dark mode aesthetics."</p>
+                  </div>
+                  <div class="io-arrow">→</div>
+                  <div class="io-box output-box">
+                    <span class="io-label">VEYRA Action</span>
+                    <p class="io-text">Real-time concept preview rendering with adaptive lighting.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <script>
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById(`panel-${btn.dataset.tab}`).classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
