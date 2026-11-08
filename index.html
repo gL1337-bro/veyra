@@ -323,6 +323,39 @@
     </div>
   </section>
 
+  <section id="waitlist" class="waitlist">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Early Access</div>
+        <h2 class="section-title">Be the First to Experience VEYRA</h2>
+        <p class="section-subtitle">Join the exclusive waitlist and get priority access to the next-generation voice interface.</p>
+      </div>
+
+      <div class="waitlist-container">
+        <div class="waitlist-card">
+          <form id="waitlistForm" class="waitlist-form" novalidate>
+            <div class="form-group">
+              <input type="email" id="emailInput" placeholder="Enter your email address..." required autocomplete="email">
+            </div>
+            <button type="submit" class="btn-submit">
+              Request Access
+              <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </form>
+          <div class="success-message" id="successMessage">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="success-title">You're on the list!</h3>
+            <p class="success-text">We'll notify you when VEYRA is ready for early access.</p>
+            <button class="btn-reset" id="btnReset">Submit another</button>
+          </div>
+          <p class="trust-text">Limited spots available for Alpha release. No spam ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <script>
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('.tab-panel');
@@ -401,6 +434,23 @@
         voiceChips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
       });
+    });
+
+    // Waitlist form
+    const waitlistForm = document.getElementById('waitlistForm');
+    const successMessage = document.getElementById('successMessage');
+    const btnReset = document.getElementById('btnReset');
+
+    waitlistForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      waitlistForm.style.display = 'none';
+      successMessage.classList.add('visible');
+    });
+
+    btnReset.addEventListener('click', () => {
+      successMessage.classList.remove('visible');
+      waitlistForm.style.display = 'flex';
+      waitlistForm.reset();
     });
   </script>
 
