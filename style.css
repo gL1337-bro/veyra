@@ -418,13 +418,13 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 70%;
   height: 100%;
-  gap: 4px;
+  gap: 10px;
 }
 
 .bento-card-large .wave-bar {
-  width: 3px;
+  width: 2px;
   height: 60%;
   border-radius: 2px;
   background: linear-gradient(to top, #2200FF, #CC00FF);
@@ -433,17 +433,17 @@ body {
   animation: wave 1.8s ease-in-out infinite;
 }
 
-.bento-card-large .wave-bar:nth-child(1) { height: 30%; animation-delay: 0s; }
-.bento-card-large .wave-bar:nth-child(2) { height: 45%; animation-delay: 0.1s; }
-.bento-card-large .wave-bar:nth-child(3) { height: 60%; animation-delay: 0.2s; }
-.bento-card-large .wave-bar:nth-child(4) { height: 75%; animation-delay: 0.3s; }
-.bento-card-large .wave-bar:nth-child(5) { height: 90%; animation-delay: 0.4s; }
-.bento-card-large .wave-bar:nth-child(6) { height: 100%; animation-delay: 0.5s; }
-.bento-card-large .wave-bar:nth-child(7) { height: 90%; animation-delay: 0.4s; }
-.bento-card-large .wave-bar:nth-child(8) { height: 75%; animation-delay: 0.3s; }
-.bento-card-large .wave-bar:nth-child(9) { height: 60%; animation-delay: 0.2s; }
-.bento-card-large .wave-bar:nth-child(10) { height: 45%; animation-delay: 0.1s; }
-.bento-card-large .wave-bar:nth-child(11) { height: 30%; animation-delay: 0s; }
+.bento-card-large .wave-bar:nth-child(1) { height: 25%; animation-delay: 0s; }
+.bento-card-large .wave-bar:nth-child(2) { height: 35%; animation-delay: 0.1s; }
+.bento-card-large .wave-bar:nth-child(3) { height: 50%; animation-delay: 0.2s; }
+.bento-card-large .wave-bar:nth-child(4) { height: 65%; animation-delay: 0.3s; }
+.bento-card-large .wave-bar:nth-child(5) { height: 80%; animation-delay: 0.4s; }
+.bento-card-large .wave-bar:nth-child(6) { height: 90%; animation-delay: 0.5s; }
+.bento-card-large .wave-bar:nth-child(7) { height: 80%; animation-delay: 0.4s; }
+.bento-card-large .wave-bar:nth-child(8) { height: 65%; animation-delay: 0.3s; }
+.bento-card-large .wave-bar:nth-child(9) { height: 50%; animation-delay: 0.2s; }
+.bento-card-large .wave-bar:nth-child(10) { height: 35%; animation-delay: 0.1s; }
+.bento-card-large .wave-bar:nth-child(11) { height: 25%; animation-delay: 0s; }
 
 @keyframes wave {
   0%, 100% { transform: scaleY(1); opacity: 0.7; }
