@@ -534,31 +534,35 @@ body {
   border-radius: 50%;
 }
 
-/* Spectrum visual */
+/* Spectrum visual - Natural Expression card only */
 .spectrum-visual {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 10px;
   height: 100%;
 }
 
 .spectrum-bar {
-  width: 7px;
-  background: var(--electric-blue);
-  border-radius: 4px;
-  animation: spectrum 1.2s ease-in-out infinite alternate;
+  width: 2px;
+  height: 60%;
+  border-radius: 2px;
+  background: linear-gradient(to top, #2200FF, #CC00FF);
+  box-shadow: 0 0 10px rgba(204, 0, 255, 0.4), 0 0 20px rgba(34, 0, 255, 0.3);
+  opacity: 0.8;
+  animation: spectrumWave 1.8s ease-in-out infinite;
 }
 
-.spectrum-bar:nth-child(1) { animation-delay: 0s; height: 35%; }
-.spectrum-bar:nth-child(2) { animation-delay: 0.15s; height: 60%; }
-.spectrum-bar:nth-child(3) { animation-delay: 0.3s; height: 45%; }
-.spectrum-bar:nth-child(4) { animation-delay: 0.45s; height: 75%; }
-.spectrum-bar:nth-child(5) { animation-delay: 0.6s; height: 50%; }
+.spectrum-bar:nth-child(1) { animation-delay: 0s; height: 20%; }
+.spectrum-bar:nth-child(2) { animation-delay: 0.15s; height: 40%; }
+.spectrum-bar:nth-child(3) { animation-delay: 0.3s; height: 60%; }
+.spectrum-bar:nth-child(4) { animation-delay: 0.45s; height: 80%; }
+.spectrum-bar:nth-child(5) { animation-delay: 0.3s; height: 60%; }
 
-@keyframes spectrum {
-  from { transform: scaleY(1); }
-  to { transform: scaleY(1.8); }
+@keyframes spectrumWave {
+  0%, 100% { transform: scaleY(1); opacity: 0.7; }
+  50% { transform: scaleY(1.4); opacity: 1; }
 }
 
 /* Responsive */
