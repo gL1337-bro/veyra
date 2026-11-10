@@ -467,6 +467,27 @@
     });
   </script>
 
+  <script>
+    const revealElements = document.querySelectorAll(
+      '.capabilities .badge, .capabilities .section-title, .capabilities .section-subtitle, .capabilities .bento-grid, ' +
+      '.workflows .badge, .workflows .section-title, .workflows .section-subtitle, .workflows .workflow-container, ' +
+      '.about .badge, .about .section-title, .about .section-subtitle, .about .about-grid, ' +
+      '.demo .badge, .demo .section-title, .demo .section-subtitle, .demo .demo-container, ' +
+      '.waitlist .badge, .waitlist .section-title, .waitlist .section-subtitle, .waitlist .waitlist-container, ' +
+      '.footer .footer-badge, .footer .footer-top, .footer .footer-wordmark, .footer .footer-bottom-bar'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach((el) => observer.observe(el));
+  </script>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
