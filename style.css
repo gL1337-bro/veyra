@@ -1371,7 +1371,15 @@ body {
 
   .input-output {
     flex-direction: column;
+    flex-wrap: nowrap;
     gap: 1rem;
+  }
+
+  .io-box {
+    flex: none;
+    width: 100%;
+    min-width: auto;
+    padding: 1rem;
   }
 
   .io-arrow {
@@ -1382,10 +1390,7 @@ body {
     content: '↓';
     color: var(--text-muted);
     font-size: 1rem;
-  }
-
-  .io-box {
-    padding: 1rem;
+    margin: 0.25rem 0;
   }
 
   .io-text {
