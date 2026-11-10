@@ -201,13 +201,92 @@ body {
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+/* ---------- Fade-in for all sections ---------- */
+.capabilities .badge,
+.capabilities .section-title,
+.capabilities .section-subtitle,
+.capabilities .bento-grid {
+  opacity: 0;
+  animation: fadeInUp ease-out forwards;
+}
+
+.capabilities .badge { animation-delay: 0s; animation-duration: 0.6s; }
+.capabilities .section-title { animation-delay: 0.2s; animation-duration: 0.8s; }
+.capabilities .section-subtitle { animation-delay: 0.4s; animation-duration: 0.8s; }
+.capabilities .bento-grid { animation-delay: 0.6s; animation-duration: 0.8s; }
+
+.workflows .badge,
+.workflows .section-title,
+.workflows .section-subtitle,
+.workflows .workflow-container {
+  opacity: 0;
+  animation: fadeInUp ease-out forwards;
+}
+
+.workflows .badge { animation-delay: 0s; animation-duration: 0.6s; }
+.workflows .section-title { animation-delay: 0.2s; animation-duration: 0.8s; }
+.workflows .section-subtitle { animation-delay: 0.4s; animation-duration: 0.8s; }
+.workflows .workflow-container { animation-delay: 0.6s; animation-duration: 0.8s; }
+
+.about .badge,
+.about .section-title,
+.about .section-subtitle,
+.about .about-grid {
+  opacity: 0;
+  animation: fadeInUp ease-out forwards;
+}
+
+.about .badge { animation-delay: 0s; animation-duration: 0.6s; }
+.about .section-title { animation-delay: 0.2s; animation-duration: 0.8s; }
+.about .section-subtitle { animation-delay: 0.4s; animation-duration: 0.8s; }
+.about .about-grid { animation-delay: 0.6s; animation-duration: 0.8s; }
+
+.demo .badge,
+.demo .section-title,
+.demo .section-subtitle,
+.demo .demo-container {
+  opacity: 0;
+  animation: fadeInUp ease-out forwards;
+}
+
+.demo .badge { animation-delay: 0s; animation-duration: 0.6s; }
+.demo .section-title { animation-delay: 0.2s; animation-duration: 0.8s; }
+.demo .section-subtitle { animation-delay: 0.4s; animation-duration: 0.8s; }
+.demo .demo-container { animation-delay: 0.6s; animation-duration: 0.8s; }
+
+.waitlist .badge,
+.waitlist .section-title,
+.waitlist .section-subtitle,
+.waitlist .waitlist-container {
+  opacity: 0;
+  animation: fadeInUp ease-out forwards;
+}
+
+.waitlist .badge { animation-delay: 0s; animation-duration: 0.6s; }
+.waitlist .section-title { animation-delay: 0.2s; animation-duration: 0.8s; }
+.waitlist .section-subtitle { animation-delay: 0.4s; animation-duration: 0.8s; }
+.waitlist .waitlist-container { animation-delay: 0.6s; animation-duration: 0.8s; }
+
+.footer .footer-badge,
+.footer .footer-top,
+.footer .footer-wordmark,
+.footer .footer-bottom-bar {
+  opacity: 0;
+  animation: fadeInUp ease-out forwards;
+}
+
+.footer .footer-badge { animation-delay: 0s; animation-duration: 0.6s; }
+.footer .footer-top { animation-delay: 0.2s; animation-duration: 0.8s; }
+.footer .footer-wordmark { animation-delay: 0.4s; animation-duration: 0.8s; }
+.footer .footer-bottom-bar { animation-delay: 0.6s; animation-duration: 0.8s; }
 
 .badge {
   display: inline-flex;
