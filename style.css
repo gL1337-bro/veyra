@@ -967,7 +967,6 @@ body {
 }
 
 .schedule-visual {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -975,31 +974,6 @@ body {
   gap: 1rem;
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
   border: 1px solid rgba(37, 99, 235, 0.15);
-}
-
-.schedule-visual::before {
-  content: '';
-  position: absolute;
-  inset: -2rem;
-  z-index: 0;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(37, 99, 235, 0.15) 0%,
-    rgba(124, 58, 237, 0.08) 30%,
-    transparent 70%
-  );
-  animation: scheduleGlow 4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.schedule-visual > * {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes scheduleGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.1); }
 }
 
 .calendar-grid {
@@ -1348,12 +1322,6 @@ body {
   }
 }
 
-@media (max-width: 900px) {
-  .schedule-visual::before {
-    inset: -1rem;
-  }
-}
-
 @media (max-width: 480px) {
   .workflows {
     padding: 4rem 0;
@@ -1369,10 +1337,6 @@ body {
 
   .workflow-visual {
     height: 180px;
-  }
-
-  .schedule-visual::before {
-    inset: 0;
   }
 }
 
