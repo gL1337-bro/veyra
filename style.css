@@ -1337,7 +1337,7 @@ body {
   }
 
   .workflow-visual {
-    height: 180px;
+    height: 240px;
   }
 
   .schedule-visual {
@@ -1383,6 +1383,7 @@ body {
   }
 
   .io-arrow {
+    display: flex;
     color: transparent;
   }
 
