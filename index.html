@@ -15,11 +15,32 @@
       </div>
       <nav class="nav-links">
         <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#technology">Technology</a>
-        <a href="#contact">Contact</a>
+        <a href="#features">Capabilities</a>
+        <a href="#workflows">Workflows</a>
+        <a href="#demo">Demo</a>
+        <a href="#waitlist">Waitlist</a>
       </nav>
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
       <a href="#waitlist" class="btn-explore">Explore VEYRA <span class="arrow">↗</span></a>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-menu-close" aria-label="Close navigation menu" aria-hidden="true">
+        <span class="close-bar"></span>
+        <span class="close-bar"></span>
+      </button>
+      <nav class="mobile-nav">
+        <a href="#about">About</a>
+        <a href="#features">Capabilities</a>
+        <a href="#workflows">Workflows</a>
+        <a href="#demo">Demo</a>
+        <a href="#waitlist">Waitlist</a>
+      </nav>
+      <a href="#waitlist" class="btn-explore mobile-btn-explore">Explore VEYRA <span class="arrow">↗</span></a>
     </div>
   </header>
 
@@ -561,6 +582,49 @@
     }, { threshold: 0.1 });
 
     revealElements.forEach((el) => observer.observe(el));
+  </script>
+
+  <script>
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+    const mobileBtnExplore = document.querySelector('.mobile-btn-explore');
+
+    function openMenu() {
+      navToggle.classList.add('active');
+      navToggle.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    navToggle.addEventListener('click', openMenu);
+    mobileMenuClose.addEventListener('click', closeMenu);
+
+    // Close menu on nav link click with smooth scroll
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Close menu on explore button click
+    mobileBtnExplore.addEventListener('click', closeMenu);
+
+    // Close menu on overlay click (click on mobile-menu background)
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        closeMenu();
+      }
+    });
   </script>
 
 </body>
