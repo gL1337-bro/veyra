@@ -1006,11 +1006,24 @@ body {
 
 .canvas-preview {
   position: relative;
-  width: 200px;
-  height: 160px;
+  width: 100%;
+  height: 100%;
+  max-width: 320px;
+  max-height: 240px;
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creative-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
 }
 
 .glow-node {
