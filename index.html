@@ -376,13 +376,33 @@
     const responseText = document.getElementById('responseText');
     const typingIndicator = document.getElementById('typingIndicator');
 
-    const fullResponse = "I've analyzed your inbox and prioritized the following:\n\n• Project Alpha — Client feedback due Tuesday, high priority.\n• Invoice #4482 — Payment overdue, requires immediate action.\n• Team Sync — Rescheduled to Thursday 10 AM.\n• Security Audit — Report available for review.\n\nShall I draft responses or schedule these for you?";
+    const voiceResponses = {
+      standard: "I've analyzed your inbox and prioritized the following:\n\n• Project Alpha — Client feedback due Tuesday, high priority.\n• Invoice #4482 — Payment overdue, requires immediate action.\n• Team Sync — Rescheduled to Thursday 10 AM.\n• Security Audit — Report available for review.\n\nShall I draft responses or schedule these for you?",
+      expressive: "Absolutely! I've gone through your inbox and here's what needs your attention right now:\n\n• 🚀 Project Alpha — Client feedback is due Tuesday, this is high priority!\n• 💰 Invoice #4482 — Payment is overdue, please take immediate action.\n• 👥 Team Sync — Rescheduled to Thursday 10 AM.\n• 🔒 Security Audit — The report is ready and available for review.\n\nWould you like me to draft responses or schedule these for you? I'm on it!",
+      technical: "Inbox analysis complete. Prioritized items:\n\n1. Project Alpha — Client feedback, due Tuesday, priority: high.\n2. Invoice #4482 — Payment overdue, requires immediate action.\n3. Team Sync — Rescheduled to Thursday 10:00 AM.\n4. Security Audit — Report available for review.\n\nOptions: draft responses or schedule these items."
+    };
 
     let isPlaying = false;
     let typeIndex = 0;
     let typeInterval = null;
+    let currentVoice = 'standard';
+
+    function resetPlayer() {
+      isPlaying = false;
+      btnPlay.classList.remove('playing');
+      iconPlay.style.display = 'block';
+      iconPause.style.display = 'none';
+      spectrum.classList.remove('active');
+      stopTyping();
+      responseText.textContent = '';
+      typingIndicator.style.display = 'none';
+      typeIndex = 0;
+    }
 
     function togglePlay() {
+      const selectedChip = document.querySelector('.voice-chip.active');
+      currentVoice = selectedChip ? selectedChip.dataset.voice : 'standard';
+
       isPlaying = !isPlaying;
       if (isPlaying) {
         btnPlay.classList.add('playing');
@@ -400,12 +420,13 @@
     }
 
     function startTyping() {
+      const response = voiceResponses[currentVoice];
       responseText.textContent = '';
       typingIndicator.style.display = 'flex';
       typeIndex = 0;
       typeInterval = setInterval(() => {
-        if (typeIndex < fullResponse.length) {
-          responseText.textContent += fullResponse.charAt(typeIndex);
+        if (typeIndex < response.length) {
+          responseText.textContent += response.charAt(typeIndex);
           typeIndex++;
         } else {
           stopTyping();
@@ -421,12 +442,19 @@
 
     btnPlay.addEventListener('click', togglePlay);
 
-    // Voice selector
+    // Voice selector with mode switching and reset
     const voiceChips = document.querySelectorAll('.voice-chip');
     voiceChips.forEach(chip => {
       chip.addEventListener('click', () => {
+        if (chip.classList.contains('active')) return;
+
+        if (isPlaying) {
+          resetPlayer();
+        }
+
         voiceChips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
+        currentVoice = chip.dataset.voice;
       });
     });
 
