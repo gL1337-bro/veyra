@@ -384,6 +384,14 @@ body {
   justify-content: center;
 }
 
+.bento-card-large .card-visual {
+  position: static;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card-content {
   padding: 1.75rem;
   flex: 1;
@@ -404,32 +412,42 @@ body {
   line-height: 1.6;
 }
 
-/* Wave visual */
-.wave-visual {
+/* Wave visual - Real-Time Response card only */
+.bento-card-large .wave-visual {
   display: flex;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
-  gap: 6px;
+  width: 80%;
   height: 100%;
+  gap: 4px;
 }
 
-.wave-bar {
-  width: 7px;
-  background: linear-gradient(to top, var(--electric-blue), var(--neon-purple));
-  border-radius: 4px;
+.bento-card-large .wave-bar {
+  width: 3px;
+  height: 60%;
+  border-radius: 2px;
+  background: linear-gradient(to top, #2200FF, #CC00FF);
+  box-shadow: 0 0 10px rgba(204, 0, 255, 0.4), 0 0 20px rgba(34, 0, 255, 0.3);
   opacity: 0.8;
-  animation: wave 1.6s ease-in-out infinite;
+  animation: wave 1.8s ease-in-out infinite;
 }
 
-.wave-bar:nth-child(1) { animation-delay: 0s; height: 45%; }
-.wave-bar:nth-child(2) { animation-delay: 0.2s; height: 70%; }
-.wave-bar:nth-child(3) { animation-delay: 0.4s; height: 55%; }
-.wave-bar:nth-child(4) { animation-delay: 0.6s; height: 80%; }
-.wave-bar:nth-child(5) { animation-delay: 0.8s; height: 60%; }
+.bento-card-large .wave-bar:nth-child(1) { height: 30%; animation-delay: 0s; }
+.bento-card-large .wave-bar:nth-child(2) { height: 45%; animation-delay: 0.1s; }
+.bento-card-large .wave-bar:nth-child(3) { height: 60%; animation-delay: 0.2s; }
+.bento-card-large .wave-bar:nth-child(4) { height: 75%; animation-delay: 0.3s; }
+.bento-card-large .wave-bar:nth-child(5) { height: 90%; animation-delay: 0.4s; }
+.bento-card-large .wave-bar:nth-child(6) { height: 100%; animation-delay: 0.5s; }
+.bento-card-large .wave-bar:nth-child(7) { height: 90%; animation-delay: 0.4s; }
+.bento-card-large .wave-bar:nth-child(8) { height: 75%; animation-delay: 0.3s; }
+.bento-card-large .wave-bar:nth-child(9) { height: 60%; animation-delay: 0.2s; }
+.bento-card-large .wave-bar:nth-child(10) { height: 45%; animation-delay: 0.1s; }
+.bento-card-large .wave-bar:nth-child(11) { height: 30%; animation-delay: 0s; }
 
 @keyframes wave {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(1.6); }
+  0%, 100% { transform: scaleY(1); opacity: 0.7; }
+  50% { transform: scaleY(1.35); opacity: 1; }
 }
 
 /* Node graph visual */
