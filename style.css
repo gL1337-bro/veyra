@@ -1813,7 +1813,7 @@ body {
 /* ---------- Footer ---------- */
 .footer {
   position: relative;
-  padding: 5rem 0 0;
+  padding: 3rem 0 1rem;
   background-color: #08070B;
   overflow: hidden;
 }
@@ -1829,15 +1829,15 @@ body {
   color: var(--text-white);
   font-size: 0.75rem;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
 }
 
 .footer-top {
   display: flex;
   align-items: flex-start;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -1858,7 +1858,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .footer-links {
@@ -1900,13 +1900,14 @@ body {
 .footer-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .footer-bottom-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 1rem;
 }
 
 .footer-copyright {
@@ -1932,7 +1933,7 @@ body {
 
 .footer-wordmark {
   text-align: center;
-  margin: 2rem 0 1rem;
+  margin: 1rem 0 0.5rem;
   line-height: 0.85;
 }
 
@@ -1972,7 +1973,7 @@ body {
 
 @media (max-width: 480px) {
   .footer {
-    padding: 3.5rem 0 2rem;
+    padding: 2.5rem 0 1rem;
   }
 
   .footer-columns {
