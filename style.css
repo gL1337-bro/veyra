@@ -1350,7 +1350,7 @@ body {
 
 @media (max-width: 900px) {
   .schedule-visual::before {
-    inset: -1.5rem;
+    inset: -1rem;
   }
 }
 
@@ -1372,7 +1372,7 @@ body {
   }
 
   .schedule-visual::before {
-    inset: -1rem;
+    inset: 0;
   }
 }
 
